@@ -13,8 +13,17 @@
   }
 
   Chat.prototype.processCmd = function(txt){
+    var cmd = txt.substring(1, txt.indexOf(' '));
+    var instruction = (txt.substring(txt.indexOf(' ')+1));
+    if (cmd==='nick'){
+      this.socket.emit('changeNick', {nickName: instruction} )
+    } else if (cmd === 'change'){
+      this.socket.emit('changeRoom', {room: instruction})
+    } else if (cmd === 'rooms') {
 
-    this.socket.emit('changeNick', {nickName: txt} )
+      this.socket.emit('printRooms', {})
+    }
+
   }
 
 

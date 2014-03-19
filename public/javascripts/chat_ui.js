@@ -7,8 +7,8 @@ $(document).ready(function(){
     event.preventDefault();
     var txt = $('input.bla').val();
     if (txt[0]==="/"){
-      var newName = (txt.substring(txt.indexOf(' ')+1))
-      chat.processCmd(newName)
+
+      chat.processCmd(txt)
     } else{
       chat.sendMessage(txt)
     }
